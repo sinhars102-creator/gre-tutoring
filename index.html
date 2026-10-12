@@ -222,6 +222,8 @@ if (REDDIT_PIXEL_ID && !window.GRE_NOTRACK) {
   rdt('init', REDDIT_PIXEL_ID);
   rdt('track', 'PageVisit');
 }
+// Reddit ad clicks arrive with ?rdt_cid=…; keep it so the Conversions API can tie a later request to that click.
+try { var rdtCid = new URLSearchParams(location.search).get('rdt_cid'); if (rdtCid) localStorage.setItem('gre-rdt-cid', rdtCid); } catch (e) {}
 </script>
 </head>
 <body>
@@ -503,8 +505,15 @@ form.addEventListener('submit', async (e) => {
       // Apps Script doesn't return CORS headers we can read, so send without reading the response.
       await fetch(FORM_ENDPOINT, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(data) });
     }
-    // A unique ID per request lets Reddit de-duplicate this Lead if it is ever also sent from a server.
-    if (window.rdt) rdt('track', 'Lead', { conversionId: (crypto.randomUUID ? crypto.randomUUID() : Date.now() + '-' + Math.random().toString(36).slice(2)) });
+    // The pixel and /api/reddit-lead (Conversions API) report the same Lead; the shared conversionId lets Reddit count it once.
+    if (!window.GRE_NOTRACK) {
+      const conversionId = crypto.randomUUID ? crypto.randomUUID() : Date.now() + '-' + Math.random().toString(36).slice(2);
+      if (window.rdt) rdt('track', 'Lead', { conversionId });
+      let clickId = null; try { clickId = localStorage.getItem('gre-rdt-cid'); } catch {}
+      const uuid = (document.cookie.match(/(?:^|; )_rdt_uuid=([^;]*)/) || [])[1] || null;
+      fetch('/api/reddit-lead', { method: 'POST', keepalive: true, headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ conversionId, clickId, uuid, email }) }).catch(() => {});
+    }
     form.hidden = true;
     document.getElementById('done').hidden = false;
   } catch {
