@@ -190,7 +190,7 @@ footer .container{display:flex;flex-wrap:wrap;justify-content:space-between;gap:
 .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
 </style>
-<!-- Opening any page with ?notrack (or ?track to undo) marks this browser as the owner's: Vercel Analytics and Clarity then skip it. -->
+<!-- Opening any page with ?notrack (or ?track to undo) marks this browser as the owner's: Vercel Analytics, Clarity and the Reddit Pixel then skip it. -->
 <script>
 (function () {
   try {
@@ -213,6 +213,15 @@ if (!window.GRE_NOTRACK) { var vs = document.createElement('script'); vs.defer =
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "ywis567atn");
+</script>
+<!-- Reddit Pixel: PageVisit on load, Lead when "Send request" goes through. Paste the pixel ID from Reddit Ads → Events Manager. -->
+<script>
+var REDDIT_PIXEL_ID = "a2_ju59k2m3wj03";
+if (REDDIT_PIXEL_ID && !window.GRE_NOTRACK) {
+  !function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);
+  rdt('init', REDDIT_PIXEL_ID);
+  rdt('track', 'PageVisit');
+}
 </script>
 </head>
 <body>
@@ -494,6 +503,7 @@ form.addEventListener('submit', async (e) => {
       // Apps Script doesn't return CORS headers we can read, so send without reading the response.
       await fetch(FORM_ENDPOINT, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(data) });
     }
+    if (window.rdt) rdt('track', 'Lead');
     form.hidden = true;
     document.getElementById('done').hidden = false;
   } catch {
