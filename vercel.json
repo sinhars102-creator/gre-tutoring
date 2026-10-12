@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/:region(in|us|eu)", "destination": "/index.html" }
+  ]
+}

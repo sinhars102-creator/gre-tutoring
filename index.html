@@ -61,7 +61,11 @@ a{color:var(--brand);text-decoration:none}
 .nav-links a{color:var(--ink-2);font-weight:500;font-size:.95rem}
 .nav-links a:hover{color:var(--brand)}
 .nav .btn{padding:.6rem 1rem;font-size:.92rem}
-@media (max-width:760px){.nav-links{display:none}.nav .btn{margin-left:auto}}
+.cur select{width:auto;font-size:.88rem;font-weight:600;padding:.45rem 1.9rem .45rem .7rem;border-radius:10px;background-color:var(--card);cursor:pointer}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+html.intl .india-only{display:none!important}
+html.pending .plans .price,html.pending .plans .per,html.pending [data-r="from"]{visibility:hidden}
+@media (max-width:760px){.nav-links{display:none}.cur{margin-left:auto}.nav .container{gap:.75rem}}
 
 /* hero */
 .hero{position:relative;overflow:hidden;padding:104px 0 112px}
@@ -205,6 +209,8 @@ footer .container{display:flex;flex-wrap:wrap;justify-content:space-between;gap:
     <nav class="nav-links" aria-label="Main">
       <a href="#method">Method</a><a href="#how">How it works</a><a href="#fees">Fees</a><a href="#apply">Contact</a>
     </nav>
+    <label class="cur"><span class="sr">Currency</span>
+      <select id="cur" aria-label="Currency"><option value="in">₹ INR</option><option value="us">$ USD</option><option value="eu">€ EUR</option></select></label>
     <a href="#apply" class="btn btn-primary">Book free call</a>
   </div>
 </header>
@@ -289,20 +295,20 @@ footer .container{display:flex;flex-wrap:wrap;justify-content:space-between;gap:
 <section id="fees" class="band">
   <div class="container">
     <div class="sec-head reveal"><div><div class="eyebrow">Fees</div><h2>Simple, per-hour pricing</h2>
-      <p>From ₹2,000 per hour. The first 30-minute call is free. You decide after that.</p></div></div>
+      <p>From <span data-r="from">₹2,000</span> per hour. The first 30-minute call is free. You decide after that.</p></div></div>
     <div class="plans reveal">
-      <div class="plan"><div class="pname">Single session</div><div class="price">₹2,500</div><div class="per">per hour</div>
+      <div class="plan"><div class="pname">Single session</div><div class="price" data-r="p1">₹2,500</div><div class="per">per hour</div>
         <p>For targeted help on one section or a last-minute review before your test.</p><a href="#apply" class="btn btn-ghost">Get started</a></div>
-      <div class="plan pick"><span class="badge">Most popular</span><div class="pname">10-hour pack</div><div class="price">₹22,000</div><div class="per">₹2,200 per hour</div>
+      <div class="plan pick"><span class="badge">Most popular</span><div class="pname">10-hour pack</div><div class="price" data-r="p10">₹22,000</div><div class="per"><span data-r="h10">₹2,200</span> per hour</div>
         <p>Most people take this. Enough to find your traps and fix them over 4–6 weeks.</p><a href="#apply" class="btn btn-primary">Get started</a></div>
-      <div class="plan"><div class="pname">20-hour pack</div><div class="price">₹40,000</div><div class="per">₹2,000 per hour</div>
+      <div class="plan"><div class="pname">20-hour pack</div><div class="price" data-r="p20">₹40,000</div><div class="per"><span data-r="h20">₹2,000</span> per hour</div>
         <p>Full preparation for both sections if you're starting below 310 or have 2–3 months.</p><a href="#apply" class="btn btn-ghost">Get started</a></div>
     </div>
-    <p class="fine">Sessions can be used any time within 3 months. Pay per pack via UPI or bank transfer. No score is guaranteed. You still have to put in the hours.</p>
+    <p class="fine">Sessions can be used any time within 3 months. <span data-r="pay">Pay per pack via UPI or bank transfer.</span> No score is guaranteed. You still have to put in the hours.</p>
   </div>
 </section>
 
-<section id="free" style="padding-bottom:0">
+<section id="free" class="india-only" style="padding-bottom:0">
   <div class="container">
     <div class="free reveal">
       <div class="free-icon" aria-hidden="true">🎓</div>
@@ -318,7 +324,7 @@ footer .container{display:flex;flex-wrap:wrap;justify-content:space-between;gap:
     <div class="reveal">
       <div class="eyebrow">Get in touch</div>
       <h2>Start with a free 30-minute call</h2>
-      <p class="intro">For paid sessions or a free tutoring spot. I read every request myself and reply within 48 hours.</p>
+      <p class="intro"><span data-r="intro">For paid sessions or a free tutoring spot.</span> I read every request myself and reply within 48 hours.</p>
       <ul class="next">
         <li><span class="ic">1</span><div><b>Send the form</b><span>Takes about two minutes.</span></div></li>
         <li><span class="ic">2</span><div><b>I get back to you</b><span>Within 48 hours, to set up a time.</span></div></li>
@@ -338,7 +344,7 @@ footer .container{display:flex;flex-wrap:wrap;justify-content:space-between;gap:
           <div><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
         </div>
         <div class="row">
-          <div><label for="phone">WhatsApp number</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+91" required></div>
+          <div><label for="phone">WhatsApp number</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+91" required><input type="hidden" id="region" name="region" value="IN"></div>
           <div><label for="testdate">Planned test date</label>
             <select id="testdate" name="testdate" required>
               <option value="">Select</option>
@@ -351,7 +357,7 @@ footer .container{display:flex;flex-wrap:wrap;justify-content:space-between;gap:
         </div>
         <div><label for="msg">Anything I should know? <span class="hint">(target programs, how long you've prepared, what you've tried)</span></label>
           <textarea id="msg" name="msg"></textarea></div>
-        <div class="freebox">
+        <div class="freebox india-only">
           <label class="check"><input type="checkbox" id="free" name="free" value="Yes"> Apply for free tutoring</label>
           <p class="small">Seats are limited each month. Free tutoring is only for serious students who genuinely can't afford paid sessions.</p>
         </div>
@@ -405,6 +411,54 @@ if ('IntersectionObserver' in window) {
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .1 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 } else document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+
+// Regional pricing. /in, /us, /eu pick a region (vercel.json rewrites them to this page);
+// on "/" a saved choice wins, then the visitor's country from /api/geo, else India.
+const REGIONS = {
+  in: { code: 'IN', from: '₹2,000', p1: '₹2,500', p10: '₹22,000', h10: '₹2,200', p20: '₹40,000', h20: '₹2,000',
+        pay: 'Pay per pack via UPI or bank transfer.', intro: 'For paid sessions or a free tutoring spot.', phone: '+91' },
+  us: { code: 'US', from: '$48', p1: '$60', p10: '$530', h10: '$53', p20: '$960', h20: '$48',
+        pay: 'Payment details are shared after the free call.', intro: 'For paid sessions.', phone: '+1' },
+  eu: { code: 'EU', from: '€48', p1: '€60', p10: '€530', h10: '€53', p20: '€960', h20: '€48',
+        pay: 'Payment details are shared after the free call.', intro: 'For paid sessions.', phone: '+' },
+};
+const EURO_COUNTRIES = new Set('AT BE BG HR CY CZ DK EE FI FR DE GR HU IE IT LV LT LU MT NL PL PT RO SK SI ES SE IS LI NO CH'.split(' '));
+const store = { get: k => { try { return localStorage.getItem(k); } catch { return null; } },
+                set: (k, v) => { try { localStorage.setItem(k, v); } catch {} } };
+
+function applyRegion(key) {
+  const r = REGIONS[key] || REGIONS.in;
+  document.querySelectorAll('[data-r]').forEach(el => { el.textContent = r[el.dataset.r]; });
+  document.documentElement.classList.toggle('intl', key !== 'in');
+  document.documentElement.classList.remove('pending');
+  document.getElementById('phone').placeholder = r.phone;
+  document.getElementById('region').value = r.code;
+  document.getElementById('cur').value = key in REGIONS ? key : 'in';
+  if (key !== 'in') { const fb = document.getElementById('free'); fb.checked = false; fb.dispatchEvent(new Event('change')); }
+  if (window.clarity) clarity('set', 'region', r.code);
+}
+
+(async function pickRegion() {
+  const fromPath = location.pathname.replace(/\/+$/, '').slice(1).toLowerCase();
+  if (fromPath in REGIONS) return applyRegion(fromPath);
+  const saved = store.get('region');
+  if (saved in REGIONS) return applyRegion(saved);
+  document.documentElement.classList.add('pending');
+  let key = 'in';
+  try {
+    const ctl = new AbortController(); setTimeout(() => ctl.abort(), 1500);
+    const { country } = await (await fetch('/api/geo', { signal: ctl.signal })).json();
+    key = country === 'IN' || !country ? 'in' : EURO_COUNTRIES.has(country) ? 'eu' : 'us';
+  } catch {}
+  applyRegion(key);
+})();
+
+document.getElementById('cur').addEventListener('change', e => {
+  const key = e.target.value;
+  store.set('region', key);
+  if (location.pathname.replace(/\/+$/, '').slice(1).toLowerCase() in REGIONS) history.replaceState(null, '', '/' + key + location.hash);
+  applyRegion(key);
+});
 
 const form = document.getElementById('req');
 const err = document.getElementById('err');
