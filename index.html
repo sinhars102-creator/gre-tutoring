@@ -194,15 +194,17 @@ footer .container{display:flex;flex-wrap:wrap;justify-content:space-between;gap:
 (function () {
   try {
     var q = new URLSearchParams(location.search);
-    if (q.has('notrack')) { localStorage.setItem('gre-notrack', '1'); localStorage.setItem('va-disable', 'true'); }
-    if (q.has('track')) { localStorage.removeItem('gre-notrack'); localStorage.removeItem('va-disable'); }
+    if (q.has('notrack')) localStorage.setItem('gre-notrack', '1');
+    if (q.has('track')) localStorage.removeItem('gre-notrack');
     window.GRE_NOTRACK = localStorage.getItem('gre-notrack') === '1';
   } catch (e) { window.GRE_NOTRACK = false; }
 })();
 </script>
 <!-- Vercel Web Analytics: visitors, referrers, countries, devices. Enable it under the project's Analytics tab. -->
-<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
-<script defer src="/_vercel/insights/script.js"></script>
+<script>
+window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+if (!window.GRE_NOTRACK) { var vs = document.createElement('script'); vs.defer = true; vs.src = '/_vercel/insights/script.js'; document.head.appendChild(vs); }
+</script>
 <!-- Microsoft Clarity: session recordings and heatmaps (project "GRE tutor"). Form inputs are masked by default. -->
 <script type="text/javascript">
     if (!window.GRE_NOTRACK) (function(c,l,a,r,i,t,y){
