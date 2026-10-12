@@ -61,13 +61,11 @@ a{color:var(--brand);text-decoration:none}
 .nav-links a{color:var(--ink-2);font-weight:500;font-size:.95rem}
 .nav-links a:hover{color:var(--brand)}
 .nav .btn{padding:.6rem 1rem;font-size:.92rem}
-.cur select{width:auto;font-size:.88rem;font-weight:600;padding:.45rem 1.9rem .45rem .7rem;border-radius:10px;background-color:var(--card);cursor:pointer}
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 html.intl .india-only{display:none!important}
 html.pending .plans .price,html.pending .plans .per,html.pending [data-r="from"]{visibility:hidden}
-@media (max-width:760px){.nav-links{display:none}.cur{margin-left:auto}.nav .container{gap:.75rem}}
+@media (max-width:760px){.nav-links{display:none}.nav .btn{margin-left:auto}.nav .container{gap:.75rem}}
 .logo,.nav .btn{white-space:nowrap}
-@media (max-width:440px){.logo-word{display:none}.nav .btn{padding:.55rem .8rem;font-size:.88rem}.cur select{padding-right:1.6rem}}
+@media (max-width:340px){.logo-word{display:none}}
 
 /* hero */
 .hero{position:relative;overflow:hidden;padding:104px 0 112px}
@@ -211,8 +209,6 @@ footer .container{display:flex;flex-wrap:wrap;justify-content:space-between;gap:
     <nav class="nav-links" aria-label="Main">
       <a href="#method">Method</a><a href="#how">How it works</a><a href="#fees">Fees</a><a href="#apply">Contact</a>
     </nav>
-    <label class="cur"><span class="sr">Currency</span>
-      <select id="cur" aria-label="Currency"><option value="in">₹ INR</option><option value="us">$ USD</option><option value="eu">€ EUR</option></select></label>
     <a href="#apply" class="btn btn-primary">Book free call</a>
   </div>
 </header>
@@ -415,7 +411,7 @@ if ('IntersectionObserver' in window) {
 } else document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
 
 // Regional pricing. /in, /us, /eu pick a region (vercel.json rewrites them to this page);
-// on "/" a saved choice wins, then the visitor's country from /api/geo, else India.
+// on "/" the visitor's country from /api/geo picks it, else India.
 const REGIONS = {
   in: { code: 'IN', from: '₹2,000', p1: '₹2,500', p10: '₹22,000', h10: '₹2,200', p20: '₹40,000', h20: '₹2,000',
         pay: 'Pay per pack via UPI or bank transfer.', intro: 'For paid sessions or a free tutoring spot.', phone: '+91' },
@@ -425,8 +421,6 @@ const REGIONS = {
         pay: 'Payment details are shared after the free call.', intro: 'For paid sessions.', phone: '+' },
 };
 const EURO_COUNTRIES = new Set('AT BE BG HR CY CZ DK EE FI FR DE GR HU IE IT LV LT LU MT NL PL PT RO SK SI ES SE IS LI NO CH'.split(' '));
-const store = { get: k => { try { return localStorage.getItem(k); } catch { return null; } },
-                set: (k, v) => { try { localStorage.setItem(k, v); } catch {} } };
 
 function applyRegion(key) {
   const r = REGIONS[key] || REGIONS.in;
@@ -435,7 +429,6 @@ function applyRegion(key) {
   document.documentElement.classList.remove('pending');
   document.getElementById('phone').placeholder = r.phone;
   document.getElementById('region').value = r.code;
-  document.getElementById('cur').value = key in REGIONS ? key : 'in';
   if (key !== 'in') { const fb = document.getElementById('free'); fb.checked = false; fb.dispatchEvent(new Event('change')); }
   if (window.clarity) clarity('set', 'region', r.code);
 }
@@ -443,8 +436,6 @@ function applyRegion(key) {
 (async function pickRegion() {
   const fromPath = location.pathname.replace(/\/+$/, '').slice(1).toLowerCase();
   if (fromPath in REGIONS) return applyRegion(fromPath);
-  const saved = store.get('region');
-  if (saved in REGIONS) return applyRegion(saved);
   document.documentElement.classList.add('pending');
   let key = 'in';
   try {
@@ -454,13 +445,6 @@ function applyRegion(key) {
   } catch {}
   applyRegion(key);
 })();
-
-document.getElementById('cur').addEventListener('change', e => {
-  const key = e.target.value;
-  store.set('region', key);
-  if (location.pathname.replace(/\/+$/, '').slice(1).toLowerCase() in REGIONS) history.replaceState(null, '', '/' + key + location.hash);
-  applyRegion(key);
-});
 
 const form = document.getElementById('req');
 const err = document.getElementById('err');
