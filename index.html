@@ -218,7 +218,7 @@ if (!window.GRE_NOTRACK) { var vs = document.createElement('script'); vs.defer =
 <script>
 var REDDIT_PIXEL_ID = "a2_ju59k2m3wj03";
 if (REDDIT_PIXEL_ID && !window.GRE_NOTRACK) {
-  !function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);
+  !function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js?pixel_id="+REDDIT_PIXEL_ID,t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);
   rdt('init', REDDIT_PIXEL_ID);
   rdt('track', 'PageVisit');
 }
