@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap");
+*{box-sizing:border-box;margin:0}
+html,body{width:var(--w);height:var(--h);overflow:hidden}
+body{font-family:Inter,sans-serif;color:#0f172a;background:#fff;position:relative;
+  background:radial-gradient(45% 50% at 12% 15%,#e0e7ff,transparent 70%),radial-gradient(40% 45% at 90% 8%,#f3e8ff,transparent 70%),radial-gradient(45% 50% at 75% 95%,#e0f2fe,transparent 70%),#fff}
+.pad{position:absolute;inset:var(--pad);display:flex;flex-direction:column}
+.logo{display:flex;align-items:center;gap:.5em;font-family:"Plus Jakarta Sans";font-weight:800;font-size:var(--logo)}
+.mark{height:1.7em;padding:0 .7em;border-radius:.45em;letter-spacing:-.02em;background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;display:grid;place-items:center;font-size:.55em}
+h1{font-family:"Plus Jakarta Sans";font-weight:800;letter-spacing:-.03em;line-height:1.05;font-size:var(--h1)}
+.grad{background:linear-gradient(120deg,#4f46e5,#7c3aed);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{font-size:var(--sub);color:#334155;line-height:1.4}
+.cta{display:inline-flex;align-items:center;gap:.4em;background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;font-weight:700;border-radius:.6em;padding:.6em 1em;font-size:var(--cta);box-shadow:0 10px 30px rgba(79,70,229,.35)}
+.price{font-family:"Plus Jakarta Sans";font-weight:700;font-size:var(--cta);color:#334155}
+.price b{color:#0f172a;font-weight:800}
+.row{display:flex;align-items:center;gap:1em;flex-wrap:wrap}
+.traps{display:grid;gap:var(--gap)}
+.trap{display:flex;align-items:center;gap:.7em;background:#fff;border:2px solid #e5e7ef;border-radius:.6em;padding:.55em .8em;font-size:var(--trap);font-weight:600;box-shadow:0 6px 18px rgba(15,23,42,.06)}
+.x{flex:none;width:1.5em;height:1.5em;border-radius:50%;background:#fee2e2;color:#dc2626;display:grid;place-items:center;font-weight:800;font-size:.8em}
+.tag{font-family:"JetBrains Mono";font-size:.62em;color:#4f46e5;text-transform:uppercase;letter-spacing:.06em;margin-right:.2em}

@@ -56,7 +56,7 @@ a{color:var(--brand);text-decoration:none}
 .nav.scrolled{border-bottom-color:var(--line)}
 .nav .container{display:flex;align-items:center;gap:2rem;height:68px}
 .logo{display:flex;align-items:center;gap:.6rem;font-family:var(--head);font-weight:800;font-size:1.1rem;color:var(--ink)}
-.logo-mark{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,var(--brand),var(--brand-2));display:grid;place-items:center;color:#fff;font-size:.8rem;font-weight:800;letter-spacing:-.02em}
+.logo-mark{flex:none;width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,var(--brand),var(--brand-2));display:grid;place-items:center;color:#fff;font-size:.8rem;font-weight:800;letter-spacing:-.02em}
 .nav-links{display:flex;gap:1.75rem;margin-left:auto}
 .nav-links a{color:var(--ink-2);font-weight:500;font-size:.95rem}
 .nav-links a:hover{color:var(--brand)}
@@ -66,6 +66,8 @@ a{color:var(--brand);text-decoration:none}
 html.intl .india-only{display:none!important}
 html.pending .plans .price,html.pending .plans .per,html.pending [data-r="from"]{visibility:hidden}
 @media (max-width:760px){.nav-links{display:none}.cur{margin-left:auto}.nav .container{gap:.75rem}}
+.logo,.nav .btn{white-space:nowrap}
+@media (max-width:440px){.logo-word{display:none}.nav .btn{padding:.55rem .8rem;font-size:.88rem}.cur select{padding-right:1.6rem}}
 
 /* hero */
 .hero{position:relative;overflow:hidden;padding:104px 0 112px}
@@ -205,7 +207,7 @@ footer .container{display:flex;flex-wrap:wrap;justify-content:space-between;gap:
 
 <header class="nav" id="nav">
   <div class="container">
-    <a href="#" class="logo"><span class="logo-mark">GRE</span>GRE Tutoring</a>
+    <a href="#" class="logo"><span class="logo-mark">GRE</span><span class="logo-word">GRE Tutoring</span></a>
     <nav class="nav-links" aria-label="Main">
       <a href="#method">Method</a><a href="#how">How it works</a><a href="#fees">Fees</a><a href="#apply">Contact</a>
     </nav>
