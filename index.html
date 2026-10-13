@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="1-on-1 online GRE tutoring: strategies to break the 310s plateau, fees, and free spots for students who can't pay.">
+<meta name="description" content="1-on-1 online GRE tutoring: strategies to break the 310s plateau, and free spots for students who can't pay.">
 <title>GRE Tutoring</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -62,7 +62,6 @@ a{color:var(--brand);text-decoration:none}
 .nav-links a:hover{color:var(--brand)}
 .nav .btn{padding:.6rem 1rem;font-size:.92rem}
 html.intl .india-only{display:none!important}
-html.pending .plans .price,html.pending .plans .per,html.pending [data-r="from"]{visibility:hidden}
 @media (max-width:760px){.nav-links{display:none}.nav .btn{margin-left:auto}.nav .container{gap:.75rem}}
 .logo,.nav .btn{white-space:nowrap}
 @media (max-width:340px){.logo-word{display:none}}
@@ -128,20 +127,6 @@ section{padding:96px 0}
 .step::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;font-family:var(--head);font-weight:800;margin-bottom:1rem}
 .step h3{font-size:1.1rem;font-weight:700;margin-bottom:.4rem}
 .step p{color:var(--ink-2);font-size:.95rem}
-
-/* pricing */
-.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
-@media (max-width:900px){.plans{grid-template-columns:1fr;max-width:440px;margin-inline:auto}}
-.plan{position:relative;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:2rem 1.75rem;display:flex;flex-direction:column;box-shadow:var(--shadow);transition:transform .2s ease,box-shadow .2s ease}
-.plan:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
-.plan.pick{border:2px solid var(--brand);box-shadow:var(--shadow-lg)}
-.badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;font-size:.75rem;font-weight:600;border-radius:999px;padding:.3rem .8rem;white-space:nowrap}
-.pname{font-family:var(--head);font-weight:700;font-size:1.1rem}
-.price{font-family:var(--head);font-size:2.4rem;font-weight:800;letter-spacing:-.03em;margin:.6rem 0 .1rem;font-variant-numeric:tabular-nums}
-.per{font-size:.88rem;color:var(--muted)}
-.plan p{color:var(--ink-2);font-size:.95rem;margin:1rem 0 1.5rem}
-.plan .btn{margin-top:auto;justify-content:center}
-.fine{text-align:center;font-size:.88rem;color:var(--muted);margin-top:1.75rem}
 
 /* free spots */
 .free{display:grid;grid-template-columns:auto 1fr auto;gap:1.5rem;align-items:center;background:linear-gradient(135deg,var(--g1),var(--g2));border:1px solid var(--line);border-radius:20px;padding:2rem 2.25rem}
@@ -232,7 +217,7 @@ try { var rdtCid = new URLSearchParams(location.search).get('rdt_cid'); if (rdtC
   <div class="container">
     <a href="#" class="logo"><span class="logo-mark">GRE</span><span class="logo-word">GRE Tutoring</span></a>
     <nav class="nav-links" aria-label="Main">
-      <a href="#method">Method</a><a href="#how">How it works</a><a href="#fees">Fees</a><a href="#apply">Contact</a>
+      <a href="#method">Method</a><a href="#how">How it works</a><a href="#apply">Contact</a>
     </nav>
     <a href="#apply" class="btn btn-primary">Free session</a>
   </div>
@@ -247,7 +232,6 @@ try { var rdtCid = new URLSearchParams(location.search).get('rdt_cid'); if (rdtC
       <p class="lede">Most people plateau because they keep doing more questions without fixing why they get them wrong. These are the strategies I use to break that plateau.</p>
       <div class="cta">
         <a href="#apply" class="btn btn-primary">Get free GRE tutoring →</a>
-        <a href="#fees" class="btn btn-ghost">See fees</a>
       </div>
       <p class="cta-note">First 30-min session is free, 1-on-1 with a top 10% GRE scorer. No payment details needed.</p>
     </div>
@@ -313,22 +297,6 @@ try { var rdtCid = new URLSearchParams(location.search).get('rdt_cid'); if (rdtC
       <div class="step"><h3>Weekly 1-on-1 sessions</h3><p>Over Google Meet, built around your error ledger.</p></div>
       <div class="step"><h3>Practice between sessions</h3><p>Targeted practice sets on your specific traps, not generic homework.</p></div>
     </div>
-  </div>
-</section>
-
-<section id="fees" class="band">
-  <div class="container">
-    <div class="sec-head reveal"><div><div class="eyebrow">Fees</div><h2>Simple, per-hour pricing</h2>
-      <p>From <span data-r="from">₹2,000</span> per hour. The first 30-minute call is free. You decide after that.</p></div></div>
-    <div class="plans reveal">
-      <div class="plan"><div class="pname">Single session</div><div class="price" data-r="p1">₹2,500</div><div class="per">per hour</div>
-        <p>For targeted help on one section or a last-minute review before your test.</p><a href="#apply" class="btn btn-ghost">Get started</a></div>
-      <div class="plan pick"><span class="badge">Most popular</span><div class="pname">10-hour pack</div><div class="price" data-r="p10">₹22,000</div><div class="per"><span data-r="h10">₹2,200</span> per hour</div>
-        <p>Most people take this. Enough to find your traps and fix them over 4–6 weeks.</p><a href="#apply" class="btn btn-primary">Get started</a></div>
-      <div class="plan"><div class="pname">20-hour pack</div><div class="price" data-r="p20">₹40,000</div><div class="per"><span data-r="h20">₹2,000</span> per hour</div>
-        <p>Full preparation for both sections if you're starting below 310 or have 2–3 months.</p><a href="#apply" class="btn btn-ghost">Get started</a></div>
-    </div>
-    <p class="fine">Sessions can be used any time within 3 months. <span data-r="pay">Pay per pack via UPI or bank transfer.</span> No score is guaranteed. You still have to put in the hours.</p>
   </div>
 </section>
 
@@ -436,15 +404,12 @@ if ('IntersectionObserver' in window) {
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 } else document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
 
-// Regional pricing. /in, /us, /eu pick a region (vercel.json rewrites them to this page);
+// Regional content. /in, /us, /eu pick a region (vercel.json rewrites them to this page);
 // on "/" the visitor's country from /api/geo picks it, else India.
 const REGIONS = {
-  in: { code: 'IN', from: '₹2,000', p1: '₹2,500', p10: '₹22,000', h10: '₹2,200', p20: '₹40,000', h20: '₹2,000',
-        pay: 'Pay per pack via UPI or bank transfer.', intro: 'For paid sessions or a free tutoring spot.', phone: '+91' },
-  us: { code: 'US', from: '$48', p1: '$60', p10: '$530', h10: '$53', p20: '$960', h20: '$48',
-        pay: 'Payment details are shared after the free call.', intro: 'For paid sessions.', phone: '+1' },
-  eu: { code: 'EU', from: '€48', p1: '€60', p10: '€530', h10: '€53', p20: '€960', h20: '€48',
-        pay: 'Payment details are shared after the free call.', intro: 'For paid sessions.', phone: '+' },
+  in: { code: 'IN', intro: 'For paid sessions or a free tutoring spot.', phone: '+91' },
+  us: { code: 'US', intro: 'For paid sessions.', phone: '+1' },
+  eu: { code: 'EU', intro: 'For paid sessions.', phone: '+' },
 };
 const EURO_COUNTRIES = new Set('AT BE BG HR CY CZ DK EE FI FR DE GR HU IE IT LV LT LU MT NL PL PT RO SK SI ES SE IS LI NO CH'.split(' '));
 
@@ -452,7 +417,6 @@ function applyRegion(key) {
   const r = REGIONS[key] || REGIONS.in;
   document.querySelectorAll('[data-r]').forEach(el => { el.textContent = r[el.dataset.r]; });
   document.documentElement.classList.toggle('intl', key !== 'in');
-  document.documentElement.classList.remove('pending');
   document.getElementById('phone').placeholder = r.phone;
   document.getElementById('region').value = r.code;
   if (key !== 'in') { const fb = document.getElementById('free'); fb.checked = false; fb.dispatchEvent(new Event('change')); }
@@ -462,7 +426,6 @@ function applyRegion(key) {
 (async function pickRegion() {
   const fromPath = location.pathname.replace(/\/+$/, '').slice(1).toLowerCase();
   if (fromPath in REGIONS) return applyRegion(fromPath);
-  document.documentElement.classList.add('pending');
   let key = 'in';
   try {
     const ctl = new AbortController(); setTimeout(() => ctl.abort(), 1500);
