@@ -1,0 +1,19 @@
+@import url("base.css");
+:root{--w:1200px;--h:1200px}
+body{background:#0f172a}
+.ph{position:absolute;inset:0;width:1200px;height:1200px;object-fit:cover}
+.brand{position:absolute;left:48px;top:44px;background:rgba(255,255,255,.92);border-radius:16px;padding:12px 18px;box-shadow:0 8px 24px rgba(15,23,42,.18);--logo:30px}
+.zoom{position:absolute;width:350px;background:#fff;border-radius:26px;padding:28px 30px;box-shadow:0 24px 60px rgba(15,23,42,.35);border:6px solid #fff;outline:3px solid #c7d2fe}
+.zoom .k{font-family:"JetBrains Mono";font-size:17px;color:#64748b;text-transform:uppercase;letter-spacing:.08em}
+.zoom .score{font-family:"Plus Jakarta Sans";font-weight:800;font-size:132px;line-height:1;letter-spacing:-.04em;color:#dc2626;margin-top:12px}
+.zoom .lbl{font-weight:600;color:#334155;font-size:20px;margin-top:6px}
+.zoom .split{display:flex;gap:12px;margin-top:20px}
+.zoom .split div{flex:1;background:#f6f7fb;border-radius:12px;padding:10px 12px;font-size:17px;color:#64748b}
+.zoom .split b{display:block;font-family:"Plus Jakarta Sans";font-size:30px;color:#0f172a}
+.lens{position:absolute;border-radius:50%;border:5px solid #fff;box-shadow:0 0 0 3px #c7d2fe,0 10px 30px rgba(15,23,42,.3)}
+svg.link{position:absolute;inset:0;pointer-events:none}
+.band{position:absolute;left:0;right:0;bottom:0;height:400px;background:linear-gradient(180deg,rgba(255,255,255,0),#fff 18%);padding:70px 64px 60px;display:flex;flex-direction:column;justify-content:flex-end}
+.band h1{font-size:76px}
+.band .sub{font-size:30px;margin-top:12px}
+.band .cta{align-self:flex-start;margin-top:28px;font-size:30px}
+.blur{position:absolute;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-radius:18px}

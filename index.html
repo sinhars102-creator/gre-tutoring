@@ -199,6 +199,17 @@ if (REDDIT_PIXEL_ID && !window.GRE_NOTRACK) {
 // Reddit ad clicks arrive with ?rdt_cid=…; keep it so the Conversions API can tie a later request to that click.
 try { var rdtCid = new URLSearchParams(location.search).get('rdt_cid'); if (rdtCid) localStorage.setItem('gre-rdt-cid', rdtCid); } catch (e) {}
 </script>
+<!-- Google tag (Google Ads): the "Submit lead form" conversion fires when "Send request" goes through. -->
+<script>
+var GOOGLE_ADS_ID = "AW-18537655280";
+if (!window.GRE_NOTRACK) {
+  var gs = document.createElement('script'); gs.async = true; gs.src = 'https://www.googletagmanager.com/gtag/js?id=' + GOOGLE_ADS_ID; document.head.appendChild(gs);
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () { dataLayer.push(arguments); };
+  gtag('js', new Date());
+  gtag('config', GOOGLE_ADS_ID);
+}
+</script>
 </head>
 <body>
 
@@ -432,6 +443,7 @@ form.addEventListener('submit', async (e) => {
     if (!window.GRE_NOTRACK) {
       const conversionId = crypto.randomUUID ? crypto.randomUUID() : Date.now() + '-' + Math.random().toString(36).slice(2);
       if (window.rdt) rdt('track', 'Lead', { conversionId });
+      if (window.gtag) gtag('event', 'conversion', { send_to: GOOGLE_ADS_ID + '/w_fMCNiui64dEPDXuIdF', value: 1.0, currency: 'INR', transaction_id: conversionId });
       let clickId = null; try { clickId = localStorage.getItem('gre-rdt-cid'); } catch {}
       const uuid = (document.cookie.match(/(?:^|; )_rdt_uuid=([^;]*)/) || [])[1] || null;
       fetch('/api/reddit-lead', { method: 'POST', keepalive: true, headers: { 'Content-Type': 'application/json' },

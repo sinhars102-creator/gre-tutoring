@@ -15,3 +15,12 @@ h1{font-family:"Plus Jakarta Sans";font-weight:800;letter-spacing:-.03em;line-he
 .item{display:flex;align-items:center;gap:.7em;background:#fff;border:2px solid #e5e7ef;border-radius:.6em;padding:.55em .8em;font-size:var(--item);font-weight:600;box-shadow:0 6px 18px rgba(15,23,42,.06)}
 .ok{flex:none;width:1.5em;height:1.5em;border-radius:50%;background:#d1fae5;color:#059669;display:grid;place-items:center;font-weight:800;font-size:.8em}
 .tag{font-family:"JetBrains Mono";font-size:.62em;color:#4f46e5;text-transform:uppercase;letter-spacing:.06em;margin-right:.2em}
+.chips{display:flex;flex-wrap:wrap;gap:.45em;font-size:var(--item)}
+.chip{font-family:"JetBrains Mono";font-size:.8em;background:#fff;border:2px solid #e5e7ef;border-radius:.5em;padding:.3em .65em;color:#0f172a}
+.chip.c{border-color:#c7d2fe;color:#4f46e5;background:#eef0ff}
+.card{background:#fff;border:2px solid #e5e7ef;border-radius:.7em;padding:.8em 1em;box-shadow:0 6px 18px rgba(15,23,42,.06);font-size:var(--item)}
+.card .k{font-family:"JetBrains Mono";font-size:.62em;color:#4f46e5;text-transform:uppercase;letter-spacing:.06em}
+.card b{display:block;font-family:"Plus Jakarta Sans";font-weight:800;margin-top:.15em}
+.card>span{display:block;color:#475569;font-size:.78em;margin-top:.2em;line-height:1.35}
+.num{flex:none;width:1.6em;height:1.6em;border-radius:50%;background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;display:grid;place-items:center;font-weight:800;font-size:.8em}
+.x{flex:none;width:1.5em;height:1.5em;border-radius:50%;background:#fee2e2;color:#dc2626;display:grid;place-items:center;font-weight:800;font-size:.8em}
