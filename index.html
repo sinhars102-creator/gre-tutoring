@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="1-on-1 online GRE tutoring: strategies to break the 310s plateau, and free spots for students who can't pay.">
+<meta name="description" content="1-on-1 online GRE tutoring: build the skills that ace the GRE, with a top 10% scorer.">
 <title>GRE Tutoring</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -61,7 +61,6 @@ a{color:var(--brand);text-decoration:none}
 .nav-links a{color:var(--ink-2);font-weight:500;font-size:.95rem}
 .nav-links a:hover{color:var(--brand)}
 .nav .btn{padding:.6rem 1rem;font-size:.92rem}
-html.intl .india-only{display:none!important}
 @media (max-width:760px){.nav-links{display:none}.nav .btn{margin-left:auto}.nav .container{gap:.75rem}}
 .logo,.nav .btn{white-space:nowrap}
 @media (max-width:340px){.logo-word{display:none}}
@@ -128,12 +127,6 @@ section{padding:96px 0}
 .step h3{font-size:1.1rem;font-weight:700;margin-bottom:.4rem}
 .step p{color:var(--ink-2);font-size:.95rem}
 
-/* free spots */
-.free{display:grid;grid-template-columns:auto 1fr auto;gap:1.5rem;align-items:center;background:linear-gradient(135deg,var(--g1),var(--g2));border:1px solid var(--line);border-radius:20px;padding:2rem 2.25rem}
-@media (max-width:760px){.free{grid-template-columns:1fr;padding:1.75rem 1.5rem}}
-.free-icon{width:56px;height:56px;border-radius:16px;background:var(--card);display:grid;place-items:center;font-size:1.6rem;box-shadow:var(--shadow)}
-.free h3{font-size:1.35rem;font-weight:800;margin-bottom:.35rem}
-.free p{color:var(--ink-2)}
 
 /* contact */
 .contact{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:start}
@@ -156,10 +149,6 @@ input,select,textarea{width:100%;font:inherit;font-size:.98rem;color:var(--ink);
 input:hover,select:hover,textarea:hover{border-color:color-mix(in srgb,var(--brand) 35%,var(--line))}
 input:focus,select:focus,textarea:focus{border-color:var(--brand)}
 textarea{min-height:110px;resize:vertical}
-.freebox{border:1px solid var(--line);background:var(--bg-soft);border-radius:12px;padding:.9rem 1rem}
-.freebox .small{margin:.35rem 0 0 1.75rem;font-size:.85rem;color:var(--muted)}
-label.check{display:flex;align-items:center;gap:.65rem;font-size:.98rem;margin:0;cursor:pointer}
-label.check input{width:1.1rem;height:1.1rem;margin:0;accent-color:var(--brand)}
 .err{color:var(--err);font-size:.9rem;min-height:1.2em}
 form .btn{width:100%;justify-content:center;padding:.95rem}
 .done{text-align:center;padding:2.5rem 1rem}
@@ -219,7 +208,7 @@ try { var rdtCid = new URLSearchParams(location.search).get('rdt_cid'); if (rdtC
     <nav class="nav-links" aria-label="Main">
       <a href="#method">Method</a><a href="#how">How it works</a><a href="#apply">Contact</a>
     </nav>
-    <a href="#apply" class="btn btn-primary">Free session</a>
+    <a href="#apply" class="btn btn-primary">Book a call</a>
   </div>
 </header>
 
@@ -228,12 +217,12 @@ try { var rdtCid = new URLSearchParams(location.search).get('rdt_cid'); if (rdtC
   <div class="container hero-grid">
     <div>
       <span class="pill"><b>Top 10%</b> GRE scorer · ex-McKinsey</span>
-      <h1>Free GRE tutoring <span class="grad">from an expert.</span></h1>
-      <p class="lede">Most people plateau because they keep doing more questions without fixing why they get them wrong. These are the strategies I use to break that plateau.</p>
+      <h1>Build the skills <span class="grad">that ace the GRE.</span></h1>
+      <p class="lede">1-on-1 online GRE tutoring with a top 10% scorer. We fix why you get questions wrong, so your Verbal and Quant skills keep improving.</p>
       <div class="cta">
-        <a href="#apply" class="btn btn-primary">Get free GRE tutoring →</a>
+        <a href="#apply" class="btn btn-primary">Book your free first call →</a>
       </div>
-      <p class="cta-note">First 30-min session is free, 1-on-1 with a top 10% GRE scorer. No payment details needed.</p>
+      <p class="cta-note">First 30-min call is free, 1-on-1 with a top 10% GRE scorer. No payment details needed.</p>
     </div>
   </div>
 </div>
@@ -300,23 +289,12 @@ try { var rdtCid = new URLSearchParams(location.search).get('rdt_cid'); if (rdtC
   </div>
 </section>
 
-<section id="free" class="india-only" style="padding-bottom:0">
-  <div class="container">
-    <div class="free reveal">
-      <div class="free-icon" aria-hidden="true">🎓</div>
-      <div><h3>Can't afford it?</h3>
-        <p>I keep a few free spots each month for people who are serious but can't pay right now. Tick "Apply for free tutoring" at the end of the form below and tell me about your situation and your target. I'll be honest if I can't take you on this month.</p></div>
-      <a href="#apply" class="btn btn-ghost">Apply</a>
-    </div>
-  </div>
-</section>
-
 <section id="apply">
   <div class="container contact">
     <div class="reveal">
       <div class="eyebrow">Get in touch</div>
       <h2>Start with a free 30-minute call</h2>
-      <p class="intro"><span data-r="intro">For paid sessions or a free tutoring spot.</span> I read every request myself and reply within 48 hours.</p>
+      <p class="intro">I read every request myself and reply within 48 hours.</p>
       <ul class="next">
         <li><span class="ic">1</span><div><b>Send the form</b><span>Takes about two minutes.</span></div></li>
         <li><span class="ic">2</span><div><b>I get back to you</b><span>Within 48 hours, to set up a time.</span></div></li>
@@ -349,12 +327,6 @@ try { var rdtCid = new URLSearchParams(location.search).get('rdt_cid'); if (rdtC
         </div>
         <div><label for="msg">Anything I should know? <span class="hint">(target programs, how long you've prepared, what you've tried)</span></label>
           <textarea id="msg" name="msg"></textarea></div>
-        <div class="freebox india-only">
-          <label class="check"><input type="checkbox" id="free" name="free" value="Yes"> Apply for free tutoring</label>
-          <p class="small">Seats are limited each month. Free tutoring is only for serious students who genuinely can't afford paid sessions.</p>
-        </div>
-        <div id="whyfree" hidden><label for="why">Tell me about your situation <span class="hint">(why you need a free spot, how much time you can put in each week)</span></label>
-          <textarea id="why" name="why"></textarea></div>
         <div class="err" id="err" role="alert"></div>
         <button type="submit" id="send" class="btn btn-primary">Send request</button>
       </form>
@@ -407,19 +379,16 @@ if ('IntersectionObserver' in window) {
 // Regional content. /in, /us, /eu pick a region (vercel.json rewrites them to this page);
 // on "/" the visitor's country from /api/geo picks it, else India.
 const REGIONS = {
-  in: { code: 'IN', intro: 'For paid sessions or a free tutoring spot.', phone: '+91' },
-  us: { code: 'US', intro: 'For paid sessions.', phone: '+1' },
-  eu: { code: 'EU', intro: 'For paid sessions.', phone: '+' },
+  in: { code: 'IN', phone: '+91' },
+  us: { code: 'US', phone: '+1' },
+  eu: { code: 'EU', phone: '+' },
 };
 const EURO_COUNTRIES = new Set('AT BE BG HR CY CZ DK EE FI FR DE GR HU IE IT LV LT LU MT NL PL PT RO SK SI ES SE IS LI NO CH'.split(' '));
 
 function applyRegion(key) {
   const r = REGIONS[key] || REGIONS.in;
-  document.querySelectorAll('[data-r]').forEach(el => { el.textContent = r[el.dataset.r]; });
-  document.documentElement.classList.toggle('intl', key !== 'in');
   document.getElementById('phone').placeholder = r.phone;
   document.getElementById('region').value = r.code;
-  if (key !== 'in') { const fb = document.getElementById('free'); fb.checked = false; fb.dispatchEvent(new Event('change')); }
   if (window.clarity) clarity('set', 'region', r.code);
 }
 
@@ -437,14 +406,6 @@ function applyRegion(key) {
 
 const form = document.getElementById('req');
 const err = document.getElementById('err');
-const freeBox = document.getElementById('free');
-const whyBox = document.getElementById('whyfree');
-const why = document.getElementById('why');
-freeBox.addEventListener('change', () => {
-  const free = freeBox.checked;
-  whyBox.hidden = !free;
-  why.required = free;
-});
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
   err.textContent = '';
@@ -459,7 +420,6 @@ form.addEventListener('submit', async (e) => {
   }
   const data = new FormData(form);
   // Keep the sheet's existing "score" column filled alongside the new verbal/quant fields.
-  data.set('free', freeBox.checked ? 'Yes' : 'No');
   data.set('score', `V ${form.verbal.value.trim()} / Q ${form.quant.value.trim()}`);
   const btn = document.getElementById('send');
   btn.disabled = true; btn.textContent = 'Sending…';
