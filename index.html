@@ -443,7 +443,7 @@ form.addEventListener('submit', async (e) => {
     if (!window.GRE_NOTRACK) {
       const conversionId = crypto.randomUUID ? crypto.randomUUID() : Date.now() + '-' + Math.random().toString(36).slice(2);
       if (window.rdt) rdt('track', 'Lead', { conversionId });
-      if (window.gtag) gtag('event', 'conversion', { send_to: GOOGLE_ADS_ID + '/w_fMCNiui64dEPDXuIdF', value: 1.0, currency: 'INR', transaction_id: conversionId });
+      if (window.gtag) gtag('event', 'conversion', { send_to: GOOGLE_ADS_ID + '/fXt4CPy0iq4dEPDXuIdF', value: 1.0, currency: 'INR', transaction_id: conversionId });
       let clickId = null; try { clickId = localStorage.getItem('gre-rdt-cid'); } catch {}
       const uuid = (document.cookie.match(/(?:^|; )_rdt_uuid=([^;]*)/) || [])[1] || null;
       fetch('/api/reddit-lead', { method: 'POST', keepalive: true, headers: { 'Content-Type': 'application/json' },
