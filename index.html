@@ -152,6 +152,32 @@ section{padding:96px 0}
 .terms{margin-top:1.75rem;color:var(--muted);font-size:.92rem;max-width:52rem}
 .terms p+p{margin-top:.5rem}
 
+
+/* included */
+.incl{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media (max-width:860px){.incl{grid-template-columns:1fr}}
+.inc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:1.5rem;box-shadow:var(--shadow)}
+.inc .badge2{display:inline-block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;border-radius:999px;padding:.2rem .65rem;margin-bottom:.7rem;background:color-mix(in srgb,var(--ok) 14%,transparent);color:var(--ok)}
+.inc .badge2.paid{background:var(--brand-soft);color:var(--brand)}
+.inc h3{font-size:1.1rem;font-weight:700;margin-bottom:.4rem}
+.inc p{color:var(--ink-2);font-size:.95rem}
+/* compare */
+.cmp{width:100%;border-collapse:separate;border-spacing:0;background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);font-size:.95rem}
+.cmp th,.cmp td{padding:.9rem 1.1rem;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+.cmp tr:last-child td{border-bottom:0}
+.cmp th{font-family:var(--head);font-size:.9rem;background:var(--bg-soft)}
+.cmp td:first-child{color:var(--muted);font-weight:500;width:28%}
+.cmp td:nth-child(2){color:var(--ink);font-weight:600}
+.cmp td:nth-child(3){color:var(--ink-2)}
+@media (max-width:640px){.cmp th,.cmp td{padding:.7rem .75rem;font-size:.88rem}}
+/* faq */
+.faq{display:grid;gap:12px;max-width:52rem}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1rem 1.2rem;box-shadow:var(--shadow)}
+.faq summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+.faq summary::after{content:"+";color:var(--brand);font-weight:700}
+.faq details[open] summary::after{content:"–"}
+.faq details p{color:var(--ink-2);margin-top:.7rem;font-size:.96rem}
+
 /* contact */
 .contact{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:start}
 @media (max-width:900px){.contact{grid-template-columns:1fr;gap:32px}}
@@ -267,6 +293,22 @@ if (!window.GRE_NOTRACK) {
 </div>
 
 
+
+<section id="included" class="band">
+  <div class="container">
+    <div class="sec-head"><div><div class="eyebrow">What you get</div><h2>Everything you need to move your score</h2>
+      <p>Start free. Continue with 1-on-1 sessions only if the mock review shows we can help.</p></div></div>
+    <div class="incl">
+      <div class="inc"><span class="badge2">Free</span><h3>2 full-length mock tests</h3><p>Timed, full-length GRE mocks in the current shorter test format, so you see exactly where you stand.</p></div>
+      <div class="inc"><span class="badge2">Free</span><h3>Expert review of both mocks</h3><p>A 1-on-1 walkthrough of your answers: which traps cost you points in Verbal and Quant, and what to fix first.</p></div>
+      <div class="inc"><span class="badge2">Free</span><h3>Your personal error ledger</h3><p>Every mistake from your mocks logged by the trap behind it. It becomes the plan for everything that follows.</p></div>
+      <div class="inc"><span class="badge2 paid">Sessions</span><h3>Live 1-on-1 classes</h3><p>Weekly sessions over Google Meet, built around your ledger. No batches, no recorded lectures, no pace set by others.</p></div>
+      <div class="inc"><span class="badge2 paid">Sessions</span><h3>Verbal, Quant or both</h3><p>Text Completion, Sentence Equivalence, Reading Comprehension, Quantitative Comparison, data and problem solving.</p></div>
+      <div class="inc"><span class="badge2 paid">Paid add-on</span><h3>1,000+ practice questions</h3><p>Targeted practice sets picked for your specific traps, so practice time goes where your points are.</p></div>
+    </div>
+  </div>
+</section>
+
 <section id="method">
   <div class="container">
     <div class="sec-head"><div><div class="eyebrow">The method</div><h2>How we break score plateaus</h2>
@@ -292,6 +334,40 @@ if (!window.GRE_NOTRACK) {
       <article class="strat"><div class="strat-top"><span class="tag" data-t="Both">Both</span><span class="num">06</span></div>
         <h3>Practise on your traps, not at random</h3>
         <p>After the mocks, you get targeted sets from a bank of 1,000+ GRE practice questions (paid add-on), picked for the exact traps your ledger shows.</p></article>
+    </div>
+  </div>
+</section>
+
+
+<section id="why" class="band">
+  <div class="container">
+    <div class="sec-head"><div><div class="eyebrow">Why 1-on-1</div><h2>Built for students stuck at a score</h2>
+      <p>Batch courses teach everyone the same syllabus. If you already know the content and your score has stopped moving, the problem is your specific mistakes.</p></div></div>
+    <table class="cmp">
+      <thead><tr><th></th><th>1-on-1 with us</th><th>Typical batch course</th></tr></thead>
+      <tbody>
+        <tr><td>Who sets the plan</td><td>Your mocks and your error ledger</td><td>A fixed syllabus for the whole batch</td></tr>
+        <tr><td>Class time spent on</td><td>Only the traps costing you points</td><td>Every topic, whether you need it or not</td></tr>
+        <tr><td>Pace</td><td>Yours</td><td>The batch's</td></tr>
+        <tr><td>Questions in class</td><td>Ask anything, any time in the session</td><td>Separate doubt sessions</td></tr>
+        <tr><td>Best for</td><td>Retakers and students stuck at 300–320</td><td>Beginners starting from zero</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+<section id="faq">
+  <div class="container">
+    <div class="sec-head"><div><div class="eyebrow">FAQ</div><h2>Common questions</h2></div></div>
+    <div class="faq">
+      <details><summary>Are the 2 mock tests really free?</summary><p>Yes. Both mocks and the 1-on-1 review of your answers are free, and we don't ask for payment details. You decide whether to continue after the review.</p></details>
+      <details><summary>How long will it take to improve my score?</summary><p>It depends on your starting score, your target and how many hours a week you can put in. After the mock review we give you a realistic plan and timeline. No score is guaranteed: you still have to put in the work.</p></details>
+      <details><summary>Who is this for?</summary><p>Students who have prepared already and are stuck, usually between 300 and 320, and people planning a retake. If you're starting from zero, a structured course may suit you better, and we'll tell you so.</p></details>
+      <details><summary>Is it fully online?</summary><p>Yes. Sessions are live and 1-on-1 over Google Meet, so you can join from anywhere. We set times with you over WhatsApp or email.</p></details>
+      <details><summary>What does the GRE look like now?</summary><p>The current GRE General Test takes just under 2 hours: one Analytical Writing essay, two Verbal Reasoning sections and two Quantitative Reasoning sections. Verbal and Quant are each scored from 130 to 170.</p></details>
+      <details><summary>Is the 1,000+ question bank included?</summary><p>It's a paid add-on. During your sessions we pick practice sets from it that target your traps. We'll go through the details on the call.</p></details>
+      <details><summary>What happens after I fill in the form?</summary><p>We reply within 48 hours on WhatsApp or email to schedule your 2 free mocks and the review call.</p></details>
     </div>
   </div>
 </section>
